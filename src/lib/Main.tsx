@@ -3,6 +3,7 @@ import { Checkbox } from "@/lib/Checkbox";
 import { LinkItems } from "@/lib/LinkItems";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { ImagePreloader } from "./ImagePreloader";
 
 export const Main = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -26,21 +27,19 @@ export const Main = () => {
     containerDimensions: dimensions,
   };
   return (
-    <MotionMain
-      ref={containerRef}
-      style={{
-        background: checked
-          ? "#FF4F00"
-          : "linear-gradient(90deg, #f6f6f6 50%, #f6f6f6 50%)",
-      }}
-      animate={{
-        backgroundColor: checked ? "#FF4F00" : "#f6f6f6",
-      }}
-      className="flex h-screen bg-slate-500 flex-col items-center justify-center p-24"
-    >
-      <Checkbox {...checkboxProps} />
-      <LinkItems />
-    </MotionMain>
+    <>
+      <ImagePreloader />
+      <MotionMain
+        ref={containerRef}
+        animate={{
+          backgroundColor: checked ? "#FF4F00" : "#f6f6f6",
+        }}
+        className="flex h-screen bg-slate-500 flex-col items-center justify-center p-24"
+      >
+        <Checkbox {...checkboxProps} />
+        <LinkItems />
+      </MotionMain>
+    </>
   );
 };
 

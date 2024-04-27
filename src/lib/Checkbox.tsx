@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
+import { CheckboxIcon } from "./CheckboxIcon";
 import { Crown } from "./Crown";
+import { useRandomIndex } from "./useRandomIndex";
 type Position = { x: number; y: number };
 const getRandomPosition = (xMax: number, yMax: number): Position => {
   return {
@@ -25,10 +27,22 @@ export const Checkbox = ({
     x: 0,
     y: 0,
   });
+  const [colorIndex, getColorIndex] = useRandomIndex(4);
+  const [noWillyIndex, getNoWillyIndex] = useRandomIndex(2);
   const widthPercentage = 0.3;
   const heightPercentage = 0.1;
   const maxX = width * widthPercentage;
   const maxY = height * heightPercentage;
+  const getImageSrc = (checked: boolean) => {
+    if (checked) return "/willy/1.jpeg";
+    return `/nowilly/${noWillyIndex.toString()}.png`;
+  };
+  const onClick = () => {
+    setPosition(getRandomPosition(maxX, maxY));
+    setChecked((prev) => !prev);
+    if (checked) getNoWillyIndex();
+    getColorIndex();
+  };
   return (
     <MotionDiv
       className="flex flex-col justify-items items-center "
@@ -49,6 +63,7 @@ export const Checkbox = ({
         }}
         animate={{
           y: [0, -100, 0],
+          scale: [1, 1.8, 1],
           rotate: Math.random() > 0.5 ? 360 : -360,
         }}
         transition={{
@@ -56,21 +71,34 @@ export const Checkbox = ({
           ease: "linear",
         }}
       >
-        <Crown />
+        <Crown colorIndex={colorIndex} />
       </MotionDiv>
-      <label className="text-white size-48">
-        <Image alt="willy1" src="/willy/1.jpeg" width={192} height={192} />
+      <label className="text-white size-48" htmlFor="checkbox">
+        <MotionImage
+          key={checked.toString()}
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          alt="willy1"
+          src={getImageSrc(checked)}
+          width={900}
+          height={1066}
+        />
       </label>
       <input
-        onClick={() => {
-          setPosition(getRandomPosition(maxX, maxY));
-          setChecked((prev) => !prev);
-        }}
+        id="checkbox"
+        onClick={onClick}
         checked={checked}
+        readOnly={true}
         type="checkbox"
-        className="size-48 appearance-none border-orange-900 border-2 rounded bg-white checked:bg-orange-600"
+        className="peer relative size-48 appearance-none border-orange-900 border-2 rounded bg-white  checked:bg-orange-600"
       />
+      <CheckboxIcon />
     </MotionDiv>
   );
 };
 const MotionDiv = motion.div;
+const MotionImage = motion(Image);

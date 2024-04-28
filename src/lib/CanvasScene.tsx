@@ -18,10 +18,11 @@ export const CanvasScene = ({ checked }: { checked?: boolean }) => {
   const [cameraRotation, setCameraRotation] = useState<Quaternion>(
     cameraRotationPosition,
   );
+
   return (
     <div className="absolute w-screen h-screen top-0 left-0">
       <Canvas className="">
-        {checked && <Box position={0} color="#00FF00" args={[1, 1, 1]} />}
+        {checked && <EternalRainLands />}
         {/* <PerspectiveCamera
         fov={40}
         makeDefault
@@ -45,4 +46,15 @@ export const CanvasScene = ({ checked }: { checked?: boolean }) => {
       </Canvas>
     </div>
   );
+};
+
+const EternalRainLands = () => {
+  const rainLands = [0, 1, 2];
+  return rainLands.map((rainLand) => {
+    return (
+      <>
+        <Box position={rainLand} color="00FF00" args={[1, 1, 1]} />
+      </>
+    );
+  });
 };

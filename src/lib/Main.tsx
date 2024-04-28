@@ -3,6 +3,7 @@ import { Checkbox } from "@/lib/Checkbox";
 import { LinkItems } from "@/lib/LinkItems";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { CanvasScene } from "./CanvasScene";
 import { ImagePreloader } from "./ImagePreloader";
 
 export const Main = () => {
@@ -30,7 +31,7 @@ export const Main = () => {
     <>
       <ImagePreloader />
 
-      {/* <CanvasScene checked={checked} /> */}
+      <CanvasScene checked={checked} />
 
       <MotionMain
         ref={containerRef}

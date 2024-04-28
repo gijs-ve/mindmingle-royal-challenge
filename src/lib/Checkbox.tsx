@@ -34,7 +34,7 @@ export const Checkbox = ({
   const maxX = width * widthPercentage;
   const maxY = height * heightPercentage;
   const getImageSrc = (checked: boolean) => {
-    if (checked) return "/willy/1.jpeg";
+    if (checked) return "/willy/0.jpeg";
     return `/nowilly/${noWillyIndex.toString()}.png`;
   };
   const onClick = () => {

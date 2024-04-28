@@ -9,6 +9,10 @@ const linkItems = [
     href: "https://www.mindmingle.nl",
     text: "Mind Mingle",
   },
+  {
+    href: "/lowe",
+    text: "Credits",
+  },
 ];
 export const LinkItems = () => {
   return (

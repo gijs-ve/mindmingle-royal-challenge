@@ -29,14 +29,20 @@ export const Main = () => {
   return (
     <>
       <ImagePreloader />
+
+      {/* <CanvasScene checked={checked} /> */}
+
       <MotionMain
         ref={containerRef}
         animate={{
-          backgroundColor: checked ? "#FF4F00" : "#f6f6f6",
+          backgroundColor: checked
+            ? "rgba(255,79,0,0.8)"
+            : "rgba(246,246,246,0.3)",
         }}
-        className="flex h-screen bg-slate-500 flex-col items-center justify-center p-24"
+        className="absolute top-0 left-0 flex h-screen w-screen bg-slate-500 flex-col items-center justify-center p-8"
       >
         <Checkbox {...checkboxProps} />
+
         <LinkItems />
       </MotionMain>
     </>

@@ -1,10 +1,10 @@
 "use client";
-import { Checkbox } from "@/lib/Checkbox";
-import { LinkItems } from "@/lib/LinkItems";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CanvasScene } from "./CanvasScene";
+import { Checkbox } from "./Checkbox";
 import { ImagePreloader } from "./ImagePreloader";
+import { LinkItems } from "./LinkItems";
 
 export const Main = () => {
   const containerRef = useRef<HTMLElement>(null);

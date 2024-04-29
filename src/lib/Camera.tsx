@@ -6,8 +6,9 @@ import { Vector3 } from "three";
 const cameraSpeed = 0.005;
 export const Camera = ({ checked }: { checked?: boolean }) => {
   const [cameraDirection, setCameraDirection] = useState(-1);
+  const randomY = Math.random() + 1;
   const cameraRef = useRef<any>(null);
-  const cameraPosition = new Vector3(0, 0, 0);
+  const cameraPosition = new Vector3(0, randomY, 0);
   useFrame((state) => {
     const currentZ = state.camera.position.z;
     if (currentZ < 4) {

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { CanvasScene } from "./CanvasScene";
 import { Checkbox } from "./Checkbox";
@@ -32,7 +33,18 @@ export const Main = () => {
       <ImagePreloader />
 
       <CanvasScene checked={checked} />
-
+      {checked && (
+        <div className="hidden px-24 sm:flex items-center justify-center">
+          <Image
+            className="h-screen w-auto z-0"
+            key={checked.toString()}
+            alt="coa"
+            src={"/coa.png"}
+            width={1920}
+            height={2082}
+          />
+        </div>
+      )}
       <MotionMain
         ref={containerRef}
         animate={{

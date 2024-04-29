@@ -3,6 +3,7 @@ export const Crown = ({ colorIndex }: { colorIndex: number }) => {
   const randomColor = CrownColors[colorIndex];
   return (
     <svg
+      className="z-50"
       xmlns="http://www.w3.org/2000/svg"
       width="128"
       height="128"

@@ -45,7 +45,7 @@ export const Checkbox = ({
   };
   return (
     <MotionDiv
-      className="flex flex-col justify-items items-center "
+      className="flex flex-col justify-items items-center"
       animate={{
         x,
         y,

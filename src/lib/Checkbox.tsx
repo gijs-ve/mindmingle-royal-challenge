@@ -116,7 +116,6 @@ export const Checkbox = ({
         className="peer relative size-48 appearance-none border-orange-900 border-2 rounded bg-white  checked:bg-orange-600"
       />
       <CheckboxIcon />
-      {/* <Sound checked={checked} /> */}
     </MotionDiv>
   );
 };

@@ -3,8 +3,9 @@
 import { useState } from "react";
 
 export const useRandomIndex = (max: number) => {
-  const [usedIndexes, setUsedIndexes] = useState<number[]>([0]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const startIndex = Math.floor(Math.random() * max);
+  const [usedIndexes, setUsedIndexes] = useState<number[]>([startIndex]);
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
   const getRandomIndex = () => {
     let randomIndex = Math.floor(Math.random() * max);
     if (usedIndexes.length === max) {

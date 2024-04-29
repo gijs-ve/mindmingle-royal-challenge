@@ -11,8 +11,12 @@ export const CheckedModels = ({
 }) => {
   if (!checked) return null;
   const isPhone = width < 640;
-  const randomDistanceZ = isPhone ? 7.5 : getRandom(6.5, 7.5, true);
-  const randomDistanceX = isPhone ? 4 : getRandom(3.9, 4.9, true);
+  const randomDistanceZ = isPhone
+    ? getRandom(7.35, 7.6, true)
+    : getRandom(6.5, 7.5, true);
+  const randomDistanceX = isPhone
+    ? getRandom(3.9, 4.2, true)
+    : getRandom(3.9, 4.9, true);
   return (
     <>
       <ThreeModel
@@ -27,7 +31,7 @@ export const CheckedModels = ({
         rotation={[0, 3.141592, 0]}
         scale={[1, 1, -1]}
       />
-      <Camera checked={checked} />
+      <Camera />
     </>
   );
 };

@@ -54,7 +54,6 @@ export const Main = () => {
         className="absolute top-0 left-0 flex h-svh w-screen bg-slate-500 flex-col items-center justify-center p-8"
       >
         <Checkbox {...checkboxProps} />
-
         <LinkItems />
       </MotionMain>
     </>

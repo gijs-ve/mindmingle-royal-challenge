@@ -19,7 +19,6 @@ export const CanvasScene = ({
       <Canvas ref={canvasRef} className="">
         <Suspense fallback={null}>
           <CheckedModels checked={checked} width={width} />
-
           <CanvasLight
             directLightPosition={lightPosition}
             targetLightPosition={targetLightPosition}

@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import { Vector3 } from "three";
 import type { CinematicCamera } from "three-stdlib";
 
-const cameraSpeed = 0.005;
-export const Camera = ({ checked }: { checked?: boolean }) => {
+export const Camera = () => {
+  const cameraSpeed = 0.005;
   const [cameraDirection, setCameraDirection] = useState(-1);
   const randomY = Math.random() + 1;
   const cameraRef = useRef<CinematicCamera>(null);

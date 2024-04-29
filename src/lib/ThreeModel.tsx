@@ -42,3 +42,4 @@ export function ThreeModel({
     </mesh>
   );
 }
+useGLTF.preload("/lion/lion.glb");

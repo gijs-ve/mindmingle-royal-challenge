@@ -1,6 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { Vector3 } from "three";
 import { CanvasLight } from "./CanvasLight";
 import { CheckedModels } from "./CheckedModels";
@@ -17,14 +17,16 @@ export const CanvasScene = ({
   return (
     <div className="absolute w-screen h-screen top-0 left-0">
       <Canvas ref={canvasRef} className="">
-        <CheckedModels checked={checked} width={width} />
+        <Suspense fallback={null}>
+          <CheckedModels checked={checked} width={width} />
 
-        <CanvasLight
-          directLightPosition={lightPosition}
-          targetLightPosition={targetLightPosition}
-          directionalLightIntensity={0}
-          ambientLightIntensity={1.2}
-        />
+          <CanvasLight
+            directLightPosition={lightPosition}
+            targetLightPosition={targetLightPosition}
+            directionalLightIntensity={0}
+            ambientLightIntensity={1.2}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );

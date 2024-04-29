@@ -22,7 +22,7 @@ export const ImagePreloader = () => {
       className={
         hide
           ? "hidden"
-          : "h-screen w-screen bg-slate-600 z-50 overflow-hidden absolute"
+          : "h-svh w-screen bg-slate-600 z-50 overflow-hidden absolute"
       }
     >
       {[...Array(nowillyLength)].map((_, index) => {

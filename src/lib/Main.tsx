@@ -35,7 +35,7 @@ export const Main = () => {
       {checked && (
         <div className="hidden px-24 sm:flex items-center justify-center">
           <Image
-            className="h-screen w-auto z-0"
+            className="h-svh w-auto z-0"
             key={checked.toString()}
             alt="coa"
             src={"/coa.png"}
@@ -51,7 +51,7 @@ export const Main = () => {
             ? "rgba(255,79,0,0.8)"
             : "rgba(246,246,246,0.3)",
         }}
-        className="absolute top-0 left-0 flex h-screen w-screen bg-slate-500 flex-col items-center justify-center p-8"
+        className="absolute top-0 left-0 flex h-svh w-screen bg-slate-500 flex-col items-center justify-center p-8"
       >
         <Checkbox {...checkboxProps} />
 

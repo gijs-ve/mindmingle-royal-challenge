@@ -15,7 +15,7 @@ export const CanvasScene = ({
   const targetLightPosition = new Vector3(-22, -5, 0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   return (
-    <div className="absolute w-screen h-screen top-0 left-0">
+    <div className="absolute w-screen h-svh top-0 left-0">
       <Canvas ref={canvasRef} className="">
         <Suspense fallback={null}>
           <CheckedModels checked={checked} width={width} />

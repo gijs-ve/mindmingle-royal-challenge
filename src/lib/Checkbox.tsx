@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Howl } from "howler";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { CheckboxIcon } from "./CheckboxIcon";
 import { Crown } from "./Crown";
 import { useRandomIndex } from "./useRandomIndex";
@@ -29,6 +30,16 @@ export const Checkbox = ({
   });
   const [colorIndex, getColorIndex] = useRandomIndex(4);
   const [noWillyIndex, getNoWillyIndex] = useRandomIndex(2);
+  const soundRef = useRef(
+    new Howl({
+      src: ["/originalWillySong.mp3"],
+      html5: true,
+      volume: 1,
+    }),
+  );
+  useEffect(() => {
+    soundRef.current.play();
+  }, []);
   const widthPercentage = 0.3;
   const heightPercentage = 0.1;
   const maxX = width * widthPercentage;
@@ -40,7 +51,11 @@ export const Checkbox = ({
   const onClick = () => {
     setPosition(getRandomPosition(maxX, maxY));
     setChecked((prev) => !prev);
-    if (checked) getNoWillyIndex();
+    if (checked) {
+      getNoWillyIndex();
+      soundRef.current.pause();
+    }
+    if (!checked) soundRef.current.play();
     getColorIndex();
   };
   return (
@@ -97,6 +112,7 @@ export const Checkbox = ({
         className="peer relative size-48 appearance-none border-orange-900 border-2 rounded bg-white  checked:bg-orange-600"
       />
       <CheckboxIcon />
+      {/* <Sound checked={checked} /> */}
     </MotionDiv>
   );
 };

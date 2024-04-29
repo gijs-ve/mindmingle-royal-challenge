@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Howl } from "howler";
 import Image from "next/image";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { CheckboxIcon } from "./CheckboxIcon";
 import { Crown } from "./Crown";
 import { useRandomIndex } from "./useRandomIndex";
@@ -37,9 +37,6 @@ export const Checkbox = ({
       volume: 1,
     }),
   );
-  useEffect(() => {
-    willySongRef.current.play();
-  }, []);
   const widthPercentage = 0.3;
   const heightPercentage = 0.1;
   const maxX = width * widthPercentage;

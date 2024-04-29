@@ -2,12 +2,13 @@ import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { Vector3 } from "three";
+import type { CinematicCamera } from "three-stdlib";
 
 const cameraSpeed = 0.005;
 export const Camera = ({ checked }: { checked?: boolean }) => {
   const [cameraDirection, setCameraDirection] = useState(-1);
   const randomY = Math.random() + 1;
-  const cameraRef = useRef<any>(null);
+  const cameraRef = useRef<CinematicCamera>(null);
   const cameraPosition = new Vector3(0, randomY, 0);
   useFrame((state) => {
     const currentZ = state.camera.position.z;

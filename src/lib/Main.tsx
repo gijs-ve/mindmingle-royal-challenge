@@ -31,7 +31,7 @@ export const Main = () => {
   return (
     <>
       <ImagePreloader />
-      <CanvasScene checked={checked} />
+      <CanvasScene checked={checked} width={dimensions.width} />
       {checked && (
         <div className="hidden px-24 sm:flex items-center justify-center">
           <Image

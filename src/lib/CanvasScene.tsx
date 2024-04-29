@@ -5,7 +5,6 @@ import { Vector3 } from "three";
 import { CanvasLight } from "./CanvasLight";
 import { CheckedModels } from "./CheckedModels";
 export const CanvasScene = ({ checked }: { checked?: boolean }) => {
-  return null;
   const lightPosition = new Vector3(45, 35, -55);
   const targetLightPosition = new Vector3(-22, -5, 0);
   const canvasRef = useRef<HTMLCanvasElement>(null);

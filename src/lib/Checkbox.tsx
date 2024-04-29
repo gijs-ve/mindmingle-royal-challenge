@@ -29,8 +29,8 @@ export const Checkbox = ({
     y: 0,
   });
   const [colorIndex, getColorIndex] = useRandomIndex(4);
-  const [noWillyIndex, getNoWillyIndex] = useRandomIndex(2);
-  const soundRef = useRef(
+  const [noWillyIndex, getNoWillyIndex] = useRandomIndex(3);
+  const willySongRef = useRef(
     new Howl({
       src: ["/originalWillySong.mp3"],
       html5: true,
@@ -38,7 +38,7 @@ export const Checkbox = ({
     }),
   );
   useEffect(() => {
-    soundRef.current.play();
+    willySongRef.current.play();
   }, []);
   const widthPercentage = 0.3;
   const heightPercentage = 0.1;
@@ -53,9 +53,16 @@ export const Checkbox = ({
     setChecked((prev) => !prev);
     if (checked) {
       getNoWillyIndex();
-      soundRef.current.pause();
+      willySongRef.current.pause();
+      const miauw = new Howl({
+        src: ["/miauw.mp3"],
+        html5: true,
+        loop: false,
+        volume: 1,
+      });
+      miauw.play();
     }
-    if (!checked) soundRef.current.play();
+    if (!checked) willySongRef.current.play();
     getColorIndex();
   };
   return (

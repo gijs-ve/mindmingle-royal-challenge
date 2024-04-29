@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const nowillyLength = 2;
+const nowillyLength = 3;
 const willyLength = 1;
 export const ImagePreloader = () => {
   const [williesReady, setWilliesReady] = useState<number>(0);

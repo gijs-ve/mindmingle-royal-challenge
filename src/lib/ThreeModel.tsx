@@ -6,11 +6,8 @@ import { BufferGeometry, Mesh, NormalBufferAttributes } from "three";
 export function ThreeModel({
   source,
   position,
-  animation,
-  animationLoop,
   rotation,
   scale,
-  vertexColors,
 }: {
   source: string;
   animation?: string;
@@ -18,7 +15,6 @@ export function ThreeModel({
   position?: ComponentProps<"primitive">["position"];
   rotation?: ComponentProps<"primitive">["rotation"];
   scale?: ComponentProps<"primitive">["scale"];
-  vertexColors?: boolean;
 }) {
   const { scene } = useGLTF(source);
   const ref = useRef<Mesh<BufferGeometry<NormalBufferAttributes>> | null>(null);
